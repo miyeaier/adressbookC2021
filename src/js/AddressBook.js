@@ -1,2 +1,7 @@
-class AddressBook {}
-module.exports = AddressBook;
+class AddressBook {
+
+
+}
+if(typeof module !== "undefined" && module.exports){
+   module.exports = AddressBook
+}

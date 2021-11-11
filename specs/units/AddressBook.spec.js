@@ -7,7 +7,11 @@ describe('AddressBook', () => {
     expect($subject).to.be.an("object")
   });
 
+  it( () => is.expected.to.be.an("object"));
+
   it("is expected to be an instance if AddressBook class",()=>{
     expect($subject).to.be.an.instanceOf(AddressBook)
   });
+
+  it( () => is.expected.to.be.instanceOf(AddressBook));
 }) ;
