@@ -32,5 +32,25 @@ describe('localStorage', () => {
     expect(typeof storedData.entries).to.equal("string");
   });
  }); 
+
+ describe('#getItem', () => {
+  context('existing key',() =>{
+    def('response',() => $subject.getItem('entries'))
+
+    before(() => {
+      $subject.setItem('entries',JSON.stringify(entry_1))
+    });
+    it('is expected to return a string',()=> {
+      expect(typeof $response).to.equal('string')
+    })
+    it('is expected to contain the data', () => {
+      expect(JSON.parse($response)).to.eql(entry_1)
+    });
+  })
+  context('non existing key',()=> {
+    
+  })   
+ })
+ 
 });
 
