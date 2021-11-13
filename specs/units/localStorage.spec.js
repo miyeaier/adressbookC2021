@@ -48,9 +48,33 @@ describe('localStorage', () => {
     });
   })
   context('non existing key',()=> {
-    
-  })   
- })
- 
+    def('response', () => $subject.getItem('nonExistingKey'))
+  
+  it('is expected to return "undefined"', () => {
+    expect($response).to.equal(undefined)
+  });
+ })   
+})
+describe('#removeItem', () => {
+  beforeEach(() => {
+    $subject.removeItem("keyToRemove")
+    expect($subject.data).to.not.haveOwnPropertyDescriptor.own.property("keyToRemove")
+  });
+})
+
+describe("#clear", () => {
+  beforeEach(() => {
+    $subject.setItem("myKey","some value")
+    $subject.setItem("myKey2","some value")
+    $subject.clear()
+  });
+  it("is expected to remove an item myKey", () => {
+    expect($subject.data).to.not.have.own.property("mykey")
+    });
+    it("is expected to remove an item myKey2", () => {
+      expect($subject.data).to.not.have.own.property("myKey2")
+      
+    });
+  })
 });
 
