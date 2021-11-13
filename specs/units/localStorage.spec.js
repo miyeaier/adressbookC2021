@@ -35,30 +35,37 @@ describe('localStorage', () => {
 
  describe('#getItem', () => {
   context('existing key',() =>{
+   
     def('response',() => $subject.getItem('entries'))
-
+    
     before(() => {
       $subject.setItem('entries',JSON.stringify(entry_1))
     });
+    
     it('is expected to return a string',()=> {
       expect(typeof $response).to.equal('string')
     })
+    
     it('is expected to contain the data', () => {
       expect(JSON.parse($response)).to.eql(entry_1)
     });
   })
+  
   context('non existing key',()=> {
     def('response', () => $subject.getItem('nonExistingKey'))
   
-  it('is expected to return "undefined"', () => {
+  
+    it('is expected to return "undefined"', () => {
     expect($response).to.equal(undefined)
   });
  })   
 })
+
 describe('#removeItem', () => {
   beforeEach(() => {
-    $subject.removeItem("keyToRemove")
-    expect($subject.data).to.not.haveOwnPropertyDescriptor.own.property("keyToRemove")
+   $subject.removeItem("keyToRemove")
+    
+   expect($subject.data).to.not.haveOwnPropertyDescriptor.own.property("keyToRemove")
   });
 })
 
@@ -68,11 +75,13 @@ describe("#clear", () => {
     $subject.setItem("myKey2","some value")
     $subject.clear()
   });
+  
   it("is expected to remove an item myKey", () => {
     expect($subject.data).to.not.have.own.property("mykey")
     });
-    it("is expected to remove an item myKey2", () => {
-      expect($subject.data).to.not.have.own.property("myKey2")
+  
+  it("is expected to remove an item myKey2", () => {
+    expect($subject.data).to.not.have.own.property("myKey2")
       
     });
   })
