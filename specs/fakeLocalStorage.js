@@ -5,13 +5,13 @@ global.window.localStorage = {
     this.data[key] = value
   },
   getItem(key) {
-     return this.data[key]
+    return this.data[key]
   },
   removeItem(key) {
     delete this.data[key]
   },
   clear() {
-    this.data ={}
+    this.data = {}
   },
   data: {}
 }

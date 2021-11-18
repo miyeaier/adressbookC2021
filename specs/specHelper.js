@@ -1,5 +1,8 @@
-const { use ,expect } = require('chai')
-const sinon =require('sinon')
+const {
+  use,
+  expect
+} = require('chai')
+const sinon = require('sinon')
 const sinonChai = require('sinon-chai')
 
 require('./fakeLocalStorage')
